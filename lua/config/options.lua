@@ -20,7 +20,6 @@ vim.opt.colorcolumn = "120" -- Set column for colors column
 vim.opt.signcolumn = "yes" -- Keep necessary space available in the with gutter.
 vim.opt.cmdheight = 1 -- Height of cmd line
 vim.opt.scrolloff = 10 -- When to start moving page
-vim.opt.completeopt = "menuone,noinsert,noselect" -- Goes to autocompletion and how it will behave.
 
 
 -- Behavior
