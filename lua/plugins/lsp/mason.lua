@@ -17,6 +17,7 @@ return {
 
 		-- Enable mason and configure icons
 		mason.setup({
+			PATH = "prepend",
 			ui = {
 				icons = {
 					package_installed = "✓",
