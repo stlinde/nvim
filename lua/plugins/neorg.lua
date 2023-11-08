@@ -24,7 +24,7 @@ return {
 					["core.dirman"] = { -- Manages Neorg workspaces
 						config = {
 							workspaces = {
-								occam = "~/mnemosyne",
+								mnemosyne = "~/Mnemosyne",
 							},
 							default_workspace = "mnemosyne",
 						},
