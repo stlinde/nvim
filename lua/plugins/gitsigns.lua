@@ -45,5 +45,15 @@ return {
 				enable = false,
 			},
 		})
+		vim.keymap.set("n", "<leader>hs", "<cmd>Gitsigns stage_hunk<cr>", {
+			desc = "[S]tage [H]unk",
+			noremap = true,
+			silent = true,
+		})
+		vim.keymap.set("n", "<leader>hr", "<cmd>Gitsigns stage_hunk<cr>", {
+			desc = "[R]eset [H]unk",
+			noremap = true,
+			silent = true,
+		})
 	end,
 }
