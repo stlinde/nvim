@@ -8,14 +8,15 @@ return {
 			contrast = {
 				terminal = false, -- Enable contrast for the built-in terminal
 				sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-				floating_windows = false, -- Enable contrast for floating windows
-				cursor_line = false, -- Enable darker background for the cursor line
+				floating_windows = true, -- Enable contrast for floating windos
+				cursor_line = true, -- Enable darker background for the cursor line
 				non_current_windows = false, -- Enable contrasted background for non-current windows
 				filetypes = {}, -- Specify which filetypes get the contrasted (darker) background
 			},
 
 			styles = { -- Give comments style such as bold, italic, underline etc.
 				comments = { --[[ italic = true ]]
+					italic = true,
 				},
 				strings = { --[[ bold = true ]]
 				},
@@ -41,8 +42,8 @@ return {
 				-- "illuminate",
 				-- "indent-blankline",
 				-- "lspsaga",
-				-- "mini",
-				-- "neogit",
+				"mini",
+				"neogit",
 				-- "neotest",
 				"neorg",
 				-- "noice"
