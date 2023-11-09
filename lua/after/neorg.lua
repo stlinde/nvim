@@ -1,5 +1,6 @@
 -- Neorg
 local wk = require("which-key")
+local ns = require("util.naming-scheme")
 
 wk.register({
 	["<leader>n"] = {
@@ -15,5 +16,6 @@ wk.register({
 		w = { "<cmd>Neorg workspace<CR>", "Change [W]orkspace" },
 		j = { "<cmd>Neorg journal today<CR>", "[J]ournal Today" },
 		J = { "<cmd>Neorg journal<CR>", "[J]ournal" },
+		n = { ns.file_with_date("~/Mnemosyne/"), "[N]ew Note" },
 	},
 })

@@ -2,7 +2,12 @@ return {
 	{
 		"nvim-neorg/neorg",
 		build = ":Neorg sync-parsers",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		ft = "norg",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-neorg/neorg-telescope",
+			{ "pysan3/neorg-templates", dependencies = { "L3MON4D3/LuaSnip" } },
+		},
 		lazy = false,
 		config = function()
 			require("neorg").setup({
@@ -29,6 +34,8 @@ return {
 							default_workspace = "mnemosyne",
 						},
 					},
+					["external.templates"] = {},
+					["core.integrations.telescope"] = {},
 				},
 			})
 		end,
