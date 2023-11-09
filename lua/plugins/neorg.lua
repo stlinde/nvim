@@ -38,6 +38,34 @@ return {
 					["core.integrations.telescope"] = {},
 				},
 			})
+
+			local ns = require("util.naming-scheme")
+			-- Keymaps
+			vim.keymap.set("n", "<leader>ni", "<cmd>Neorg index<cr>", {
+				desc = "[I]ndex",
+				noremap = true,
+				silent = true,
+			})
+			vim.keymap.set("n", "<leader>nj", "<cmd>Neorg journal today<cr>", {
+				desc = "[J]ournal Today",
+				noremap = true,
+				silent = true,
+			})
+			vim.keymap.set("n", "<leader>nJ", "<cmd>Neorg journal<cr>", {
+				desc = "[J]ournal",
+				noremap = true,
+				silent = true,
+			})
+			vim.keymap.set("n", "<leader>nw", "<cmd>Neorg workspace<cr>", {
+				desc = "Change [W]orkspace",
+				noremap = true,
+				silent = true,
+			})
+			vim.keymap.set("n", "<leader>nn", ns.file_with_date("~/Mnemosyne/"), {
+				desc = "[N]ew Note",
+				noremap = true,
+				silent = true,
+			})
 		end,
 	},
 }
