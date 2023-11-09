@@ -35,7 +35,7 @@ return {
 				-- "dashboard",
 				-- "eyeliner",
 				-- "fidget"
-				-- "flash"
+				"flash",
 				"gitsigns",
 				-- "harpoon",
 				-- "hop",
