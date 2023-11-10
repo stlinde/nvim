@@ -12,15 +12,14 @@ vim.opt.ignorecase = true -- Don't care about which case.
 vim.opt.smartcase = true -- When using capitalization manually, use it in search
 vim.opt.hlsearch = false -- Don't highlight
 
-
 -- Appearance
+vim.opt.number = true
 vim.opt.relativenumber = true -- Use relative line numbers
 vim.opt.termguicolors = true -- Allow full color support in terminal
 vim.opt.colorcolumn = "120" -- Set column for colors column
 vim.opt.signcolumn = "yes" -- Keep necessary space available in the with gutter.
 vim.opt.cmdheight = 1 -- Height of cmd line
 vim.opt.scrolloff = 10 -- When to start moving page
-
 
 -- Behavior
 vim.opt.hidden = true -- Enable changing buffers without saving.
