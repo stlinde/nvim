@@ -6,7 +6,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-neorg/neorg-telescope",
-			{ "pysan3/neorg-templates", dependencies = { "L3MON4D3/LuaSnip" } },
 		},
 		lazy = false,
 		config = function()
@@ -15,6 +14,7 @@ return {
 					["core.defaults"] = {}, -- Loads default behaviour
 					["core.concealer"] = {}, -- Adds pretty icons to your documents
 					["core.keybinds"] = {}, -- Adds default keybindings
+					["core.summary"] = {}, -- Adds index generation support
 					["core.completion"] = {
 						config = {
 							engine = "nvim-cmp",
@@ -29,19 +29,17 @@ return {
 					["core.dirman"] = { -- Manages Neorg workspaces
 						config = {
 							workspaces = {
-								mnemosyne = "~/Mnemosyne",
+								memex = "~/memex",
 							},
-							default_workspace = "mnemosyne",
+							default_workspace = "memex",
 						},
 					},
-					["external.templates"] = {},
-					["core.integrations.telescope"] = {},
 				},
 			})
 
 			local ns = require("util.naming-scheme")
 			-- Keymaps
-			vim.keymap.set("n", "<leader>ni", "<cmd>Neorg index<cr>", {
+			vim.keymap.set("n", "<leader>ni", "<cmd>cd ~/memex/<cr><cmd>Neorg index<cr>", {
 				desc = "[I]ndex",
 				noremap = true,
 				silent = true,
@@ -61,7 +59,7 @@ return {
 				noremap = true,
 				silent = true,
 			})
-			vim.keymap.set("n", "<leader>nn", ns.file_with_date("~/Mnemosyne/"), {
+			vim.keymap.set("n", "<leader>nn", ns.file_with_date("~/memex/"), {
 				desc = "[N]ew Note",
 				noremap = true,
 				silent = true,

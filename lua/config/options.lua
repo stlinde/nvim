@@ -16,7 +16,7 @@ vim.opt.hlsearch = false -- Don't highlight
 vim.opt.number = true
 vim.opt.relativenumber = true -- Use relative line numbers
 vim.opt.termguicolors = true -- Allow full color support in terminal
-vim.opt.colorcolumn = "120" -- Set column for colors column
+-- vim.opt.colorcolumn = "120" -- Set column for colors column
 vim.opt.signcolumn = "yes" -- Keep necessary space available in the with gutter.
 vim.opt.cmdheight = 1 -- Height of cmd line
 vim.opt.scrolloff = 10 -- When to start moving page
@@ -39,3 +39,7 @@ vim.opt.modifiable = true -- Enable editing in the buffer that you are in.
 vim.opt.encoding = "UTF-8" -- Set encoding to "UTF-8".
 vim.opt.timeout = true -- Enable timeout for which-key.
 vim.opt.timeoutlen = 300 -- Set timeoutlen to 300 ms.
+
+-- For Org mode
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nc"

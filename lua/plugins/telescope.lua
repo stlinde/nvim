@@ -15,6 +15,9 @@ return {
 			-- Configuration
 			telescope.setup({
 				defaults = {
+					layout_config = {
+						vertical = { width = 0.5 },
+					},
 					mappings = {
 						i = {
 							["C-k"] = actions.move_selection_previous, -- move to previous result
