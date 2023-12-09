@@ -32,7 +32,7 @@ return {
 			-- List of servers for mason to install
 			ensure_installed = {
 				"lua_ls",
-				"pyright",
+				-- "pyright",
 				"clangd",
 			},
 			-- auto-install configured servers (with lspconfig)
