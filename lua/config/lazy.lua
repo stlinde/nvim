@@ -39,7 +39,7 @@ local opts = {
 	},
 	dev = {
 		-- directory where you store your local plugin projects
-		path = "~/projects",
+		path = "~/dev/nvim-plugs",
 		---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
 		patterns = {}, -- For example {"folke"}
 		fallback = false, -- Fallback to git when local plugin doesn't exist
@@ -48,7 +48,7 @@ local opts = {
 		-- install missing plugins on startup. This doesn't increase startup time.
 		missing = true,
 		-- try to load one of these colorschemes when starting an installation during startup
-		colorscheme = { "gruvbox" },
+		colorscheme = { "catppuccin" },
 	},
 	checker = {
 		-- automatically check for plugin updates
@@ -77,10 +77,10 @@ local opts = {
 				"gzip",
 				"matchit",
 				"matchparen",
-				"netrwPlugin",
+				-- "netrwPlugin",
 				"tarPlugin",
 				"tohtml",
-				"tutor",
+				-- "tutor",
 				"zipPlugin",
 			},
 		},

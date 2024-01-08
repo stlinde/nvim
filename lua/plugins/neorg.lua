@@ -44,11 +44,6 @@ return {
 				noremap = true,
 				silent = true,
 			})
-			vim.keymap.set("n", "<leader>nj", "<cmd>Neorg journal today<cr>", {
-				desc = "[J]ournal Today",
-				noremap = true,
-				silent = true,
-			})
 			vim.keymap.set("n", "<leader>nJ", "<cmd>Neorg journal<cr>", {
 				desc = "[J]ournal",
 				noremap = true,
@@ -59,8 +54,13 @@ return {
 				noremap = true,
 				silent = true,
 			})
-			vim.keymap.set("n", "<leader>nn", ns.file_with_date("~/memex/"), {
+			vim.keymap.set("n", "<leader>nn", ns.file_with_date("~/notes/"), {
 				desc = "[N]ew Note",
+				noremap = true,
+				silent = true,
+			})
+			vim.keymap.set("n", "<leader>nj", "<cmd>e ~/notes/journal.norg<cr><cmd>$read !date<cr>", {
+				desc = "New [J]ournal Entry",
 				noremap = true,
 				silent = true,
 			})

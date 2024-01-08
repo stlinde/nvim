@@ -44,3 +44,6 @@ vim.opt.timeoutlen = 300 -- Set timeoutlen to 300 ms.
 -- For Org mode
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = "nc"
+
+-- Status Line
+-- vim.opt.statusline = "%n%f%=c%c %l/%L"
