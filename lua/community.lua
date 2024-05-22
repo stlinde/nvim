@@ -9,6 +9,6 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.recipes.telescope-nvchad-theme" },
+  -- { import = "astrocommunity.recipes.telescope-nvchad-theme" },
   -- import/override with your plugins folder
 }
