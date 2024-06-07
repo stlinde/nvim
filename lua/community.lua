@@ -8,7 +8,8 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.motion.flash-nvim" },
   -- { import = "astrocommunity.recipes.telescope-nvchad-theme" },
   -- import/override with your plugins folder
 }

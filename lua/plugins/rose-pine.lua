@@ -1,3 +1,4 @@
+-- if true then return {} end
 ---@type LazySpec
 return {
   "rose-pine/neovim",
@@ -5,7 +6,7 @@ return {
   priority = 1000,
   lazy = false,
   config = function()
-    require("rose-pine").setup({
+    require("rose-pine").setup {
       variant = "auto", -- auto, main, moon, or dawn
       dark_variant = "main", -- main, moon, or dawn
       dim_inactive_windows = false,
@@ -16,8 +17,8 @@ return {
         italic = true,
         transparency = false,
       },
-    })
+    }
 
-    vim.cmd("colorscheme rose-pine")
-  end
+    vim.cmd "colorscheme rose-pine"
+  end,
 }
