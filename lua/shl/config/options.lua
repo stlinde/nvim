@@ -11,6 +11,8 @@ vim.g.have_nerd_font = true
 vim.opt.breakindentopt      = "list:-1"
 vim.opt.clipboard           = "unnamedplus"
 vim.opt.conceallevel        = 2
+-- vim.opt.number              = true
+-- vim.opt.relativenumber      = true
 vim.opt.cursorline          = true
 vim.opt.confirm             = true
 vim.opt.completeopt         = "menuone,noinsert"
@@ -44,5 +46,6 @@ vim.opt.textwidth           = 78
 vim.opt.virtualedit         = "block"
 vim.opt.wildmode            = "longest:full,full"
 vim.opt.winminwidth         = 5
+vim.opt.pumheight           = 10
 
 --stylua: ignore end

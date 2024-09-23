@@ -51,4 +51,26 @@ later(load("shl.plugins.mini.files"))
 
 later(load("NeogitOrg/neogit", { add = { depends = { "nvim-lua/plenary.nvim" } }, setup = {} }))
 
+later(load("hrsh7th/nvim-cmp", {
+  init = "shl.plugins.cmp",
+  add = {
+    depends = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
+    },
+  },
+}))
 
+later(load("neovim/nvim-lspconfig", {
+  init = "shl.plugins.lspconfig",
+  add = {
+    depends = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      "folke/lazydev.nvim"
+    },
+  },
+}))
