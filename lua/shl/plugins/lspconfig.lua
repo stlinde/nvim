@@ -39,13 +39,7 @@ local servers = {
     },
   },
   marksman = {},
-  basedpyright = {
-    settings = {
-      basedpyright = {
-        typeCheckingMode = "off",
-      },
-    },
-  },
+  basedpyright = {},
   harper_ls = {
     filetypes = { "markdown", "html" },
     settings = {
@@ -80,6 +74,7 @@ local servers = {
 }
 
 local ensure_installed = vim.tbl_keys(servers or {})
+
 vim.list_extend(ensure_installed, {
   "stylua",
   "prettierd",

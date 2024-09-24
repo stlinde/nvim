@@ -4,7 +4,7 @@ pcall(function() vim.loader.enable() end)
 
 -- [[ Setup Mini ]]
 -- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
-local path_package = vim.fn.stdpath('data') .. '/site'
+local path_package = vim.fn.stdpath('data') .. '/site/'
 local mini_path = path_package .. 'pack/deps/start/mini.nvim'
 if not vim.loop.fs_stat(mini_path) then
   vim.cmd('echo "Installing `mini.nvim`" | redraw')
@@ -49,7 +49,7 @@ now(cmd("colorscheme modus_vivendi"))
 
 now(load("shl.plugins.mini.starter"))
 now(load("shl.plugins.mini.statusline"))
--- now(load("shl.plugins.mini.icons"))
+now(load("shl.plugins.mini.icons"))
 
 -- Lazy Loaded ==============================================================
 later(load("shl.plugins.mini.pick"))
@@ -63,10 +63,6 @@ later(load("nvim-treesitter/nvim-treesitter", {
 }))
 later(function() add("nvim-treesitter/nvim-treesitter-textobjects") end)
 
-later(load("nvim-treesitter/nvim-treesitter-context", {
-  init = "treesitter-context",
-  setup = {},
-}))
 
 later(load("hrsh7th/nvim-cmp", {
   init = "shl.plugins.cmp",
@@ -81,7 +77,7 @@ later(load("hrsh7th/nvim-cmp", {
 }))
 
 later(load("neovim/nvim-lspconfig", {
-  init = "shl.plugins.lspconfig",
+  init = "shl.plugins.lsp",
   add = {
     depends = {
       "williamboman/mason.nvim",

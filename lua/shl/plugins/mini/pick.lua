@@ -115,13 +115,6 @@ local show_align_on_nul = function(buf_id, items, query, opts)
   MiniPick.default_show(buf_id, items, query, opts)
 end
 
-MiniPick.registry.grep_live_align = function()
-  MiniPick.builtin.grep_live({}, {
-    source = { show = show_align_on_nul },
-    window = { config = { width = math.floor(0.816 * vim.o.columns) } },
-  })
-end
-
 -- Colorscheme picker =======================================================
 
 local selected_colorscheme -- Currently selected or original colorscheme

@@ -35,12 +35,13 @@ vim.opt.scrolloff           = 4
 vim.opt.sessionoptions      = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 vim.opt.shiftround          = true
 vim.opt.shiftwidth          = 2
+vim.opt.signcolumn          = "yes"
 
 vim.opt.shortmess:append({ S=true, W=true, I=true, c=true, C=true })
 
 vim.opt.splitbelow          = true
 vim.opt.splitright          = true
-vim.opt.textwidth           = 78
+-- vim.opt.textwidth           = 78
 -- vim.opt.timeoutlen       = 300
 -- vim.opt.updatetime       = 250
 vim.opt.virtualedit         = "block"
