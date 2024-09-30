@@ -54,6 +54,8 @@ now(load("shl.plugins.mini.icons"))
 -- Lazy Loaded ==============================================================
 later(load("shl.plugins.mini.pick"))
 later(load("shl.plugins.mini.files"))
+later(load("shl.plugins.mini.hipatterns"))
+later(load("shl.plugins.mini.clue"))
 
 later(load("NeogitOrg/neogit", { add = { depends = { "nvim-lua/plenary.nvim" } }, setup = {} }))
 

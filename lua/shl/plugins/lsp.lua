@@ -1,5 +1,4 @@
 -- [[ Language Server Configuration ]]
-local lspconfig = require("lspconfig")
 -- All language servers are expected to be installed with 'mason.vnim'.
 -- Currently used ones:
 -- - clangd for C/C++
@@ -8,6 +7,13 @@ local lspconfig = require("lspconfig")
 -- - sumneko_lua for Lua
 -- - typescript-language-server for Typescript and Javascript
 
+require("mason").setup()
+require("mason-lspconfig").setup({ ensure_installed = {
+  "basedpyright",
+  "lua_ls",
+} })
+
+require("lazydev").setup()
 local lspconfig = require('lspconfig')
 
 -- Preconfiguration ===========================================================
@@ -26,22 +32,22 @@ local on_attach_custom = function(client, buf_id)
   end
 end
 
-local diagnostic_opts = {
-  float = { border = 'double' },
-  -- Show gutter sings
-  signs = {
-    -- With highest priority
-    priority = 9999,
-    -- Only for warnings and errors
-    severity = { min = 'WARN', max = 'ERROR' },
-  },
-  -- Show virtual text only for errors
-  virtual_text = { severity = { min = 'ERROR', max = 'ERROR' } },
-  -- Don't update diagnostics when typing
+vim.diagnostic.config({
+  float = { border = "single" },
+  underline = true,
   update_in_insert = false,
-}
+  virtual_text = {
+    spacing = 4,
+    source = "if_many",
+    prefix = "●",
+  },
+  severity_sort = true,
+})
 
-vim.diagnostic.config(diagnostic_opts)
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
+}
 
 -- R (r_language_server) ======================================================
 lspconfig.r_language_server.setup({
@@ -55,61 +61,39 @@ lspconfig.r_language_server.setup({
 lspconfig.basedpyright.setup({ on_attach = on_attach_custom })
 
 -- Lua (sumneko_lua) ==========================================================
-local luals_root = vim.fn.stdpath('data') .. '/mason'
-if vim.fn.isdirectory(luals_root) == 1 then
-  -- if false then
-  local sumneko_binary = luals_root .. '/bin/lua-language-server'
-
-  lspconfig.lua_ls.setup({
-    handlers = {
-      -- Show only one definition to be usable with `a = function()` style.
-      -- Because LuaLS treats both `a` and `function()` as definitions of `a`.
-      ['textDocument/definition'] = function(err, result, ctx, config)
-        if type(result) == 'table' then result = { result[1] } end
-        vim.lsp.handlers['textDocument/definition'](err, result, ctx, config)
-      end,
-    },
-    cmd = { sumneko_binary },
-    on_attach = function(client, bufnr)
-      on_attach_custom(client, bufnr)
-      -- Reduce unnecessarily long list of completion triggers for better
-      -- `MiniCompletion` experience
-      client.server_capabilities.completionProvider.triggerCharacters = { '.', ':' }
+lspconfig.lua_ls.setup({
+  handlers = {
+    -- Show only one definition to be usable with `a = function()` style.
+    -- Because LuaLS treats both `a` and `function()` as definitions of `a`.
+    ['textDocument/definition'] = function(err, result, ctx, config)
+      if type(result) == 'table' then result = { result[1] } end
+      vim.lsp.handlers['textDocument/definition'](err, result, ctx, config)
     end,
-    root_dir = function(fname) return lspconfig.util.root_pattern('.git')(fname) or lspconfig.util.path.dirname(fname) end,
-    settings = {
-      Lua = {
-        runtime = {
-          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-          version = 'LuaJIT',
-          -- Setup your lua path
-          path = vim.split(package.path, ';'),
-        },
-        diagnostics = {
-          -- Get the language server to recognize common globals
-          globals = { 'vim', 'describe', 'it', 'before_each', 'after_each' },
-          disable = { 'need-check-nil' },
-          -- Don't make workspace diagnostic, as it consumes too much CPU and RAM
-          workspaceDelay = -1,
-        },
-        workspace = {
-          -- Don't analyze code from submodules
-          ignoreSubmodules = true,
-        },
-        -- Do not send telemetry data containing a randomized but unique identifier
-        telemetry = {
-          enable = false,
-        },
+  },
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize common globals
+        globals = { 'vim', 'describe', 'it', 'before_each', 'after_each' },
+        disable = { 'need-check-nil' },
+        -- Don't make workspace diagnostic, as it consumes too much CPU and RAM
+        workspaceDelay = -1,
+      },
+      workspace = {
+        -- Don't analyze code from submodules
+        ignoreSubmodules = true,
+      },
+      hint = {
+        enable = true,
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
       },
     },
-  })
-end
+  }
+})
 
 -- C/C++ (clangd) =============================================================
 lspconfig.clangd.setup({ on_attach = on_attach_custom })
 
-require("mason").setup()
-require("mason-lspconfig").setup({ ensure_installed = {
-  "basedpyright",
-  "lua_ls",
-} })
